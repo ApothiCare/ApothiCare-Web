@@ -6,63 +6,28 @@ import { faBars} from "@fortawesome/free-solid-svg-icons";
 
 //import logo from './logo.svg';
 import './App.css';
-import TestGrid from './TestGrid';
+import TopNavbar from "./top-navbar";
 
 //use Json formatted files
  // Each json element is defined by its activity, users and fonctionalities are secondary
 //define default colors for each nth array inside an array (2nd user would be red for example)
-let activities = {
-  name: "Scanner ses médicaments",
-  users: ["Utilisateur de l'application"],
-  goals: [
-      "S'assurer de l'authenticité du médicament",
-      "Vérifier la date de péremption",
-      "Accéder à la notice du médicament"
-  ]
+
+export const ROUTER_PATHS = {
+    Home : "/home",
+    FAQ : "/FAQ",
+    Blog : "/blog"
 };
+
 class App extends Component {
 
-  goMobile() {
-    let x = document.getElementById("TOPNAV#1");
-    if (x.className === "top-nav") {
-      x.className += " responsive";
-    } else {
-      x.className = "top-nav";
-    }
-  }
+
   //endregion
 
   render() {
     return (
       <div className="App">
 
-        <div className={"top-nav"} id={"TOPNAV#1"} style={this.state.TopNavbarStyle} >
-          <a href={"#home"} className={"logo"}>
-            <img
-                src={"http://res.cloudinary.com/hrscywv4p/image/upload/c_limit,fl_lossy,h_300,w_300,f_auto,q_auto/v1/1562599/smartphone_ganvug.png"}
-                width={75}
-                height={75}/>
-            <h2>ApothiCare</h2>
-          </a>
-          <a className={"nav-items"} href={"#home"} onClick={() => {
-            window.scrollTo(0, 0);
-          }}>
-            <h3>Home</h3>
-          </a>
-          <a className={"nav-items"} href={"#solution"} onClick={() => {
-            window.scrollTo(0, 800);
-          }}>
-            <h3>Notre solution</h3>
-          </a>
-          <a className={"nav-items"} href={"#contact"} onClick={() => {
-            window.scrollTo(0, 1800);
-          }}>
-            <h3>Nous contacter</h3>
-          </a>
-          <a href="javascript:void(0);" className="icon" onClick={this.goMobile}>
-            <FontAwesomeIcon icon={faBars}></FontAwesomeIcon>
-          </a>
-        </div>
+        <TopNavbar/>
 
         <div className={"header"}>
           <div className={"header-content"}>
