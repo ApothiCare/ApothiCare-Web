@@ -1,4 +1,4 @@
 node_modules/*
-redux_test/*
+src/redux_test/
 old/*
 .idea/
