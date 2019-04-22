@@ -1,17 +1,59 @@
 .App {
-  width: 100vw;
+  width: 1fr;
   overflow: auto;
   background-color: white;
 }
 
+.website-grid {
+  display: flex;
+  flex-direction: column;
+}
+
+.showcase {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 180vh;
+  background-color: darkblue;
+}
+
+.header {
+  height: 50%;
+  width: 100%;
+  background-color: blue;
+}
+
+.content {
+  height: 50%;
+  width: 100%;
+  background-color: lightblue;
+}
+
+.footer {
+  height: 90vh;
+  width: 100%;
+  background-color: aliceblue;
+}
 
 .top-navbar {
   display: flex;
   position: fixed;
   z-index: 1;
-  width: 100vw;
+  height: 5.5vw;
+  width: 100%;
   overflow: hidden;
-  background-color: white;
+}
+
+.blog {
+  background-color: red;
+  height: 180vh;
+  width: 100%;
+}
+
+.faq {
+  width: 100%;
+  background-color: yellow;
+  height: fit-content;
 }
 
 .nav-items {
@@ -23,5 +65,6 @@
 }
 
 .logo {
+  margin-top: -1.5vh;
   margin-left: 1vw;
 }

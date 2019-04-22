@@ -5,36 +5,20 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faBars} from "@fortawesome/free-solid-svg-icons";
 import ApothiCare_logo from "./ressources/ApothiCare_logo.png"
 
-const tab_items = [
-    {
-        componentID: "header",
-        textValue: "Home",
-        router_path: "#header"
-    },
-    {
-        componentID: "content",
-        textValue: "Notre solution",
-        router_path: "#content"
-    },
-    {
-        componentID: "footer",
-        textValue: "Contact",
-        router_path: "#contact"
-    },
-    {
-        componentID: "faq",
-        textValue: "FAQ",
-        router_path: "/FAQ"
-    },
-    {
-        componentID: "blog",
-        textValue: "Blog",
-        router_path: "/blog"
-    },
-];
+
+const CSS_pageStart = {
+    'backgroundColor':  'transparent',
+    'color' : 'black'
+};
+const CSS_pageScrolled = {
+    'backgroundColor':  'white',
+    'color' : '',
+    'borderBottom': '1px solid grey',
+    'boxShadow': '0px 2px 5px grey',
+};
 
 const Logo = ({width, height}) => (
-    <Link to={"/home"}>
+    <a href={"/home"}>
         <img
             alt="ApothiCare_logo.png"
             src={ApothiCare_logo}
@@ -43,14 +27,14 @@ const Logo = ({width, height}) => (
                 "width": width,
                 "height": height
             }}/>
-    </Link>
+    </a>
 );
 
 const TopNavbar_TabItem = ({componentID, textValue, router_path}) => (
     <Link
         className={"TopNavbar_TabItem"}
         to={router_path}
-        onClick={()=> {document.getElementById(componentID).scrollIntoView( true );}}
+        onClick={()=> {document.getElementById(componentID).scrollIntoView( {behavior: "smooth", block:"start", inline:"nearest"});}}
         key={componentID + " TabItem"}
     >
         {textValue}
@@ -74,21 +58,39 @@ export default class TopNavbar extends Component {
         return elements;
     };
 
-    CSS_pageStart = {
-        'backgroundColor':  'transparent',
-        'color' : 'black'
-    };
-    CSS_pageScrolled = {
-        'backgroundColor':  'white',
-        'color' : '',
-        'borderBottom': '1px solid grey',
-        'boxShadow': '0px 2px 5px grey',
-    };
+    tab_items = [
+        {
+            componentID: "header",
+            textValue: "Home",
+            router_path: ROUTER_PATHS.Home
+        },
+        {
+            componentID: "content",
+            textValue: "Notre solution",
+            router_path: ROUTER_PATHS.Home + "/#content"
+        },
+        {
+            componentID: "footer",
+            textValue: "Contact",
+            router_path: window.location.pathname + "#footer"
+        },
+        {
+            componentID: "faq",
+            textValue: "FAQ",
+            router_path: ROUTER_PATHS.FAQ
+        },
+        {
+            componentID: "blog",
+            textValue: "Blog",
+            router_path: ROUTER_PATHS.Blog
+        },
+    ];
+
     //region Responsive + DownScrollTopNavbar transformation
     handleScroll = (e) => {
         this.setState({
             TopNavbarStyle: (window.scrollY < 5) ?
-                this.CSS_pageStart : this.CSS_pageScrolled });
+                CSS_pageStart : CSS_pageScrolled });
     };
 
     goMobile = () => {
@@ -108,7 +110,7 @@ export default class TopNavbar extends Component {
                 id={"TOPNAV#1"}
                 style={this.state.TopNavbarStyle}>
                 {Logo({width:"7.5vw", height:"7.5vw"})}
-                {this.render_TabItems(tab_items)}
+                {this.render_TabItems(this.tab_items)}
                 <a href="javascript:void(0);" className="icon" onClick={this.goMobile}>
                     <FontAwesomeIcon icon={faBars}/>
                 </a>

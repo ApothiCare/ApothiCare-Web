@@ -1,8 +1,15 @@
 import React, { Component } from 'react';
 import "react-grid-layout/css/styles.css";
 import "react-resizable/css/styles.css";
+import {Route} from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars} from "@fortawesome/free-solid-svg-icons";
+
+import Showcase from "./showcase"
+import FAQ from "./faq"
+import Blog from "./blog"
+import Footer from "./footer"
+
 
 //import logo from './logo.svg';
 import './App.css';
@@ -12,7 +19,7 @@ import TopNavbar from "./top-navbar";
  // Each json element is defined by its activity, users and fonctionalities are secondary
 //define default colors for each nth array inside an array (2nd user would be red for example)
 
-export const ROUTER_PATHS = {
+export var ROUTER_PATHS = {
     Home : "/home",
     FAQ : "/FAQ",
     Blog : "/blog"
@@ -28,8 +35,15 @@ class App extends Component {
       <div className="App">
 
         <TopNavbar/>
+        <div className={"website-grid"}>
+          <Route path={"/home"} render={(props) => <Showcase {...props}/>}/>
+          <Route path={"/FAQ"} render={(props) => <FAQ {...props}/>}/>
+          <Route path={"/blog"} render={(props) => <Blog {...props}/>}/>
+          <Footer/>
+        </div>
 
-        <div className={"header"}>
+
+        {/*<div className={"header"}>
           <div className={"header-content"}>
             <div className={"header-content-title"}>
               Simplifiez la gestion de vos médicaments<br/>
@@ -93,7 +107,7 @@ class App extends Component {
         <div className={"footer"}>
           <div className={"content-title"}>Nous contacter</div>
           <div className={"content-subtitle"}>Vous êtes intéressés ou souhaitez plus d'informations sur notre solution ? Envoyez nous un mail !</div>
-        </div>
+        </div>*/}
         {/*<div className={"utilisateurs"}>
         </div>
         <div className={"users_1"}>
