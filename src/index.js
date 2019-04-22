@@ -3,9 +3,14 @@
 // Learn more about service workers: http://bit.ly/CRA-PWA
 /*serviceWorker.unregister();*/
 
-import { render } from 'react-dom'
-import App from './App'
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
+import { BrowserRouter, Route } from 'react-router-dom';
 
-render(<App />,
+ReactDOM.render(
+    <BrowserRouter>
+        <Route path="/" render={(props) => <App {...props} />}/>
+    </BrowserRouter>,
     document.getElementById('root')
 );

@@ -21,30 +21,6 @@ let activities = {
   ]
 };
 class App extends Component {
-  constructor(props) {
-    super(props);
-    window.addEventListener('scroll', this.handleScroll);
-    this.state = {
-      TopNavbarStyle : {}
-    };
-  }
-
-  //region Responsive + DownScrollTopNavbar transformation
-  handleScroll = (e) => {
-    var top = (window.scrollY < 5) ? true : false;
-    var tmp = {
-      TopNavbarStyle: (top) ? {
-        'background-color':  'transparent',
-        'color' : 'black',
-      } : {
-        'background-color':  'white',
-        'color' : '',
-        'border-bottom': '1px solid grey',
-        'box-shadow': '0px 2px 5px grey',
-      }
-    };
-    this.setState(tmp);
-  };
 
   goMobile() {
     let x = document.getElementById("TOPNAV#1");
