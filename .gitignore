@@ -2,3 +2,4 @@ node_modules/*
 redux_test/*
 .gitignore
 old/*
+.idea/
