@@ -4,7 +4,7 @@ import "react-resizable/css/styles.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars} from "@fortawesome/free-solid-svg-icons";
 
-import logo from './logo.svg';
+//import logo from './logo.svg';
 import './App.css';
 import TestGrid from './TestGrid';
 
@@ -136,13 +136,13 @@ class App extends Component {
               <img className={"void"}></img>
               <div className={"text-card second"}>
                 <div className={"text-card-title"}>
-                  PAIEMENT EN LIGNE
+                  Loi CIP13 du 9/02/19
                 </div>
                 <div className={"text-card-subtitle"}>
-                  Simplifiez vos achats !
+                  Parlez de notre service à vos pharmaciens !
                 </div>
                 <div className={"text-card-content"}>
-                  Facilitez vos commandes en passant par l'application et retirez les simplement dans la pharmacie de votre choix.
+                  Les pharmaciens devront scanner le code CIP13 de leurs médicaments pour confirmer leur authenticité à compter du 9 février 2019, et nous cherchons à nous associer au plus de pharmaciens possible afin de vous fournir le meilleur service possible.
                 </div>
               </div>
             </div>
