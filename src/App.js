@@ -31,9 +31,11 @@ class App extends Component {
   //endregion
 
   render() {
+      if (window.location.pathname === "/") {
+          window.location.href = ROUTER_PATHS["Home"];
+      }
     return (
       <div className="App">
-
         <TopNavbar/>
         <div className={"website-grid"}>
           <Route path={"/home"} render={(props) => <Showcase {...props}/>}/>

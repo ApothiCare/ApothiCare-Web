@@ -17,16 +17,12 @@ const CSS_pageScrolled = {
     'boxShadow': '0px 2px 5px grey',
 };
 
-const Logo = ({width, height}) => (
+const Logo = () => (
     <a href={"/home"}>
         <img
             alt="ApothiCare_logo.png"
             src={ApothiCare_logo}
-            className={"logo"}
-            style={{
-                "width": width,
-                "height": height
-            }}/>
+            className={"logo"}/>
     </a>
 );
 
@@ -52,10 +48,13 @@ export default class TopNavbar extends Component {
 
     render_TabItems = (tab_items) => {
         let elements = [];
-        for (let i = 0, len = tab_items.length; i < len ; i++) {
+        for (let i = tab_items.length - 1; i >= 0 ; i--) {
             elements.push(TopNavbar_TabItem(tab_items[i]));
         }
-        return elements;
+        return (
+            <div className={"tab-items"}>
+                {elements}
+            </div>);
     };
 
     tab_items = [
@@ -109,7 +108,7 @@ export default class TopNavbar extends Component {
                 className={"top-navbar"}
                 id={"TOPNAV#1"}
                 style={this.state.TopNavbarStyle}>
-                {Logo({width:"7.5vw", height:"7.5vw"})}
+                {Logo()}
                 {this.render_TabItems(this.tab_items)}
                 <a href="javascript:void(0);" className="icon" onClick={this.goMobile}>
                     <FontAwesomeIcon icon={faBars}/>

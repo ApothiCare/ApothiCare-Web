@@ -9,7 +9,7 @@ import {faBars} from "@fortawesome/free-solid-svg-icons";
 export default class FAQ extends Component {
     render () {
         return (
-            <div id={"faq"}>
+            <div className={"faq"} id={"faq"}>
 
             </div>
         );
